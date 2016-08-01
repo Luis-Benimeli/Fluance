@@ -1,0 +1,32 @@
+<li ng-class="{'editing': $ctrl.editing, 'completed': $ctrl.todo.completed}">
+  <todo-text-input
+    ng-if="$ctrl.editing"
+    todo="$ctrl.todo"
+    date="$ctrl.todo.date"
+    time="$ctrl.todo.time"
+    text="$ctrl.todo.text"
+    description="$ctrl.todo.description"
+    editing="$ctrl.editing"
+    on-save="$ctrl.handleSave(date, time, text, description)">
+<!--    on-save="$ctrl.handleSave(date, time, text, description)">
+-->
+  </todo-text-input>
+  <div class="view" ng-if="!$ctrl.editing">
+    <table>
+      <tr ng-dblclick="$ctrl.handleDoubleClick()">
+        <td class="completed">
+          <input type="checkbox"
+            ng-checked="$ctrl.todo.completed"
+            ng-click="$ctrl.onChange({id: $ctrl.todo.id})"/>
+        </td>
+        <td class="date">{{$ctrl.todo.date}}</td>
+        <td class="time">{{$ctrl.todo.time}}</td>
+        <td class="text">{{$ctrl.todo.text}}</td>
+        <td class="description">{{$ctrl.todo.description}}</td>
+        <td>
+          <button class="destroy" ng-click="$ctrl.handleDestroy($ctrl.todo.id)"></button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</li>

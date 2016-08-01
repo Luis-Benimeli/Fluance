@@ -1,0 +1,49 @@
+<p ng-class="{'edit': $ctrl.editing, 'new-todo': $ctrl.newTodo}">
+  <table>
+    <tr>
+      <td width="100px">Date</td>
+      <td colspan="2"><input class="textInput"
+        ng-model="$ctrl.date"
+        placeholder="{{$ctrl.placeholder}}"
+        type="text"/>
+      </td>
+    </tr>
+    <tr>
+      <td width="100px">Time</td>
+      <td colspan="2"><input class="textInput"
+        ng-model="$ctrl.time"
+        placeholder="{{$ctrl.placeholder}}"
+        type="text"/>
+      </td>
+    </tr>
+    <tr>
+      <td width="100px">Subject</td>
+      <td colspan="2"><input class="textInput"
+        ng-model="$ctrl.text"
+        placeholder="{{$ctrl.placeholder}}"
+        type="text"/>
+      </td>
+    </tr>
+    <tr>
+      <td width="100px">Description</td>
+      <td><input class="textInput"
+        ng-model="$ctrl.description"
+        placeholder="{{$ctrl.placeholder}}"
+        type="text"/>
+      </td>
+      <td>
+        <button class="add-item"
+          ng-if="!$ctrl.editing && $ctrl.date.length > 0 && $ctrl.time.length > 0 && $ctrl.text.length > 0 && $ctrl.description.length > 0"
+          ng-click="$ctrl.handleSubmit($event)">
+          Add
+        </button>
+        <button class="add-item"
+          ng-if="$ctrl.editing && $ctrl.date.length > 0 && $ctrl.time.length > 0 && $ctrl.text.length > 0 && $ctrl.description.length > 0"
+          ng-click="$ctrl.handleSave($event)">
+          Save
+        </button>
+      </td>
+    </tr>
+  </table>
+  </p>
+</p>
